@@ -88,10 +88,10 @@
 
   /* ────────────────────────────────────────────────────────────
      UNREAD SERVER ANIMATION
-     Set to "rainbow" for the cycling color, or "none" to use the
-     main theme color (crimson / violet / blue depending on palette).
+     "rainbow" cycles through RGB hues via filter: hue-rotate().
+     "none" uses the static main theme color.
      ──────────────────────────────────────────────────────────── */
-  --unread-server-animation: none;
+  --unread-server-animation: rainbow;
 
   /* ────────────────────────────────────────────────────────────
      VIDEO / SCREEN SHARE BUTTONS
@@ -263,12 +263,14 @@ div .userProfileModalOuter__90b4a .userProfileInnerThemedNonPremium_b64fb4 .user
 /* 2. Force inner-span ring geometry. Specificity (0,3,0) matches the legacy pill
       :not()-chain rules above — source order tiebreak puts this one on top.
       All states (8px unread, 20px transient, 40px selected) now render as a full
-      ring around the icon instead of a state-sized stub. */
+      ring around the icon instead of a state-sized stub.
+      border-radius: 50% makes it a true circle (overrides NAAT's 30% rounded square). */
 .wrapper__58105.overlay__58105 .item__58105 {
   top: -2px !important;
   left: 2px !important;
   width: 100% !important;
   height: 100% !important;
+  border-radius: 50% !important;
 }
 
 /* DOT RIGHT */
