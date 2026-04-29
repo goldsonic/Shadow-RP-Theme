@@ -242,12 +242,28 @@ div .userProfileModalOuter__90b4a .userProfileInnerThemedNonPremium_b64fb4 .user
   height: 20px !important;
 }
 
-/* The legacy NAAT pill rules above use a :not() chain that gives them specificity
-   (0,3,0) — higher than NAAT's own .item__58105 ring rule (0,1,0). Both carry
-   !important, so specificity decides, and the local rule wins. That clobbers the
-   ring overlay variant's height (forces 40px instead of NAAT's intended 100%),
-   producing a stubby half-height ring on the left side of the icon.
-   Restore NAAT's ring geometry with matching specificity, scoped to the overlay. */
+/* RING OVERLAY FIX — Discord's `.wrapper__58105.overlay__58105` is the indicator
+   ring around server icons (selected, unread, hover). Discord sizes this wrapper
+   based on the *indicator* (8px for unread dot, 40px for selected, etc.), not
+   the icon. Leaving it that way means our inner-span ring renders at 100% of a
+   tiny box — a stubby red mark on the left of the icon instead of a ring around it.
+
+   Two-part fix:
+   1. Stretch the wrapper to fill its containing block (the icon's box). */
+.wrapper__58105.overlay__58105 {
+  position: absolute !important;
+  inset: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 2. Force inner-span ring geometry. Specificity (0,3,0) matches the legacy pill
+      :not()-chain rules above — source order tiebreak puts this one on top.
+      All states (8px unread, 20px transient, 40px selected) now render as a full
+      ring around the icon instead of a state-sized stub. */
 .wrapper__58105.overlay__58105 .item__58105 {
   top: -2px !important;
   left: 2px !important;
