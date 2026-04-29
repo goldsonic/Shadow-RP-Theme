@@ -1,0 +1,396 @@
+/**
+ * @name ShadowRP
+ * @author Shadow
+ * @version 1.0
+ * @description ShadowRP-themed Discord theme, built on the NotAnotherAnimeTheme v3 engine.
+ *              Crimson primary, deep-black noir backgrounds, GTA / Vinewood night aesthetic.
+ *              Includes commented-out alternate palettes for Gang (purple) and Police (blue).
+ */
+
+@import url(https://puckzxz.github.io/NotAnotherAnimeTheme/build/v3/naat.v3.css);
+
+/*
+  HOW TO CUSTOMIZE THIS THEME
+  ───────────────────────────
+  1. Any image URL must end in .jpg / .png / .gif / .webp.
+  2. Upload your own ShadowRP banner / logo to imgur.com (or any direct-link host)
+     and paste the direct image URL into --theme-background-image and
+     --home-icon-image below.
+  3. To swap palettes, comment out the active block under "PALETTES" and
+     uncomment the one you want (Main / Gang / Police).
+*/
+
+:root {
+  /* ────────────────────────────────────────────────────────────
+     BACKGROUND
+     Replace this URL with your own hosted ShadowRP banner.
+     The first ShadowRP key art (hooded figure + Vinewood) works great.
+     ──────────────────────────────────────────────────────────── */
+  --theme-background-image: url(https://i.imgur.com/69Rxb14.jpg);
+
+  /* ────────────────────────────────────────────────────────────
+     PALETTES — uncomment ONE block
+     ──────────────────────────────────────────────────────────── */
+
+  /* ▸ MAIN  (silver / crimson — matches the ShadowRP logo) */
+  --main-theme-color: rgb(220, 38, 38);
+  --category-hover-color: rgb(248, 80, 80);
+  --mention-color: rgba(220, 38, 38, 0.08);
+  --mention-sider: rgba(220, 38, 38, 1);
+  --mention-hover-color: rgba(220, 38, 38, 0.14);
+  --add-discover-icon-color: #dc2626;
+  --new-messages-bar-background-color: #dc2626;
+  --unread-message-divider-color: #dc2626;
+
+  /* ▸ GANG  (violet — matches the Shadow Gang artwork)
+  --main-theme-color: rgb(147, 51, 234);
+  --category-hover-color: rgb(168, 85, 247);
+  --mention-color: rgba(147, 51, 234, 0.08);
+  --mention-sider: rgba(147, 51, 234, 1);
+  --mention-hover-color: rgba(147, 51, 234, 0.14);
+  --add-discover-icon-color: #9333ea;
+  --new-messages-bar-background-color: #9333ea;
+  --unread-message-divider-color: #9333ea;
+  */
+
+  /* ▸ POLICE  (royal blue — matches the Police Bot / Police artwork)
+  --main-theme-color: rgb(37, 99, 235);
+  --category-hover-color: rgb(96, 165, 250);
+  --mention-color: rgba(37, 99, 235, 0.08);
+  --mention-sider: rgba(37, 99, 235, 1);
+  --mention-hover-color: rgba(37, 99, 235, 0.14);
+  --add-discover-icon-color: #2563eb;
+  --new-messages-bar-background-color: #2563eb;
+  --unread-message-divider-color: #2563eb;
+  */
+
+  /* ────────────────────────────────────────────────────────────
+     CORE TRANSPARENCY — deep noir black
+     ──────────────────────────────────────────────────────────── */
+  --theme-transparency: rgba(8, 8, 12, 0.86);
+
+  /* ────────────────────────────────────────────────────────────
+     HOME ICON (the friends-tab pill icon)
+     Replace this URL with the ShadowRP circular logo.
+     ──────────────────────────────────────────────────────────── */
+  --home-icon-image: url(https://i.imgur.com/P5MyIid.jpg);
+  --home-icon-image-position: center center;
+  --home-icon-image-zoom: 100%;
+
+  /* ────────────────────────────────────────────────────────────
+     SERVER LIST WIDTH
+     Single: 62px  /  Double: 126px  /  Triple: 184px  /  Quad: 242px
+     ──────────────────────────────────────────────────────────── */
+  --server-listing-width: 242px;
+
+  /* Font Size */
+  --font-size: 100%;
+
+  /* ────────────────────────────────────────────────────────────
+     UNREAD SERVER ANIMATION
+     Set to "rainbow" for the cycling color, or "none" to use the
+     main theme color (crimson / violet / blue depending on palette).
+     ──────────────────────────────────────────────────────────── */
+  --unread-server-animation: none;
+
+  /* ────────────────────────────────────────────────────────────
+     VIDEO / SCREEN SHARE BUTTONS
+     ──────────────────────────────────────────────────────────── */
+  --video-screen-button-background-color: rgba(180, 180, 200, 0.18);
+  --video-screen-button-foreground-color: white;
+  --video-screen-button-background-hovor-color: rgba(220, 38, 38, 0.35);
+  --video-screen-button-foreground-hovor-color: white;
+
+  /* Role Title Color */
+  --member-listing-role-color: var(--main-theme-color);
+
+  /* ────────────────────────────────────────────────────────────
+     USER POPOUTS
+     ──────────────────────────────────────────────────────────── */
+  --small-user-popout-background-image: var(--theme-background-image);
+  --small-user-popout-background-transparency: rgba(8, 8, 12, 0.7);
+  --small-user-popout-background-image-position: center;
+
+  --big-user-popout-background-image: var(--theme-background-image);
+  --big-user-popout-background-transparency: rgba(8, 8, 12, 0.7);
+  --big-user-popout-background-image-position: center;
+
+  /* ────────────────────────────────────────────────────────────
+     CODE / EMBEDS / MESSAGE BOX
+     ──────────────────────────────────────────────────────────── */
+  --code-markup-background-color: rgba(0, 0, 0, 0.65);
+  --code-markup-border: 1px solid rgba(220, 38, 38, 0.25);
+
+  --message-box-transparency: rgba(8, 8, 12, 0.65);
+  --embed-background-transparency: rgba(8, 8, 12, 0.65);
+
+  --message-hover-buttons-background: rgba(180, 180, 200, 0.12);
+
+  /* Context Menu */
+  --context-menu-transparency: rgba(12, 12, 16, 0.88);
+
+  /* ────────────────────────────────────────────────────────────
+     ADD SERVER / DISCOVERY ICON
+     ──────────────────────────────────────────────────────────── */
+  --add-discover-icon-transparency: rgba(180, 180, 200, 0.15);
+
+  /* ────────────────────────────────────────────────────────────
+     CHANNEL LIMIT INDICATOR
+     ──────────────────────────────────────────────────────────── */
+  --channel-limit-count-color: var(--channels-default);
+  --channel-limit-background-left: rgba(180, 180, 200, 0.1);
+  --channel-limit-background-right: rgba(220, 38, 38, 0.25);
+
+  /* Scrollbar */
+  --scrollbar-color: rgba(220, 38, 38, 0.25);
+
+  /* ────────────────────────────────────────────────────────────
+     UNREAD / NEW MESSAGES DIVIDERS
+     ──────────────────────────────────────────────────────────── */
+  --unread-message-divider-font-color: #fff;
+  --new-messages-bar-font-color: #fff;
+
+  /* ────────────────────────────────────────────────────────────
+     EMOJI MENU
+     ──────────────────────────────────────────────────────────── */
+  --emoji-menu-background-color: rgba(8, 8, 12, 0.7);
+  --emoji-menu-sider-background-color: rgba(0, 0, 0, 0);
+  --emoji-menu-server-header-background-color: rgba(0, 0, 0, 0.85);
+  --emoji-menu-bottom-bar-background-color: black;
+  --emoji-menu-search-bar-background-color: rgba(180, 180, 200, 0.1);
+
+  /* ────────────────────────────────────────────────────────────
+     MESSAGE SEARCH
+     ──────────────────────────────────────────────────────────── */
+  --message-search-menu-background-color: rgba(8, 8, 12, 0.85);
+  --message-search-container-background-color: rgba(8, 8, 12, 0.65);
+  --message-search-result-background-color: rgba(180, 180, 200, 0.05);
+
+  /* ────────────────────────────────────────────────────────────
+     CHANNEL COLORS
+     ──────────────────────────────────────────────────────────── */
+  --text-voice-channel-color: rgb(142, 146, 151);
+  --text-voice-channel-hover-color: #dcddde;
+  --text-voice-channel-selected-text-color: #fff;
+  --unread-text-channel-color: #fff;
+  --unread-text-channel-bubble-color: var(--main-theme-color);
+
+  /* Folders */
+  --folder-background-color: #1a1a1f;
+  --expanded-folder-background-color: transparent;
+
+  /* ────────────────────────────────────────────────────────────
+     REACTIONS
+     ──────────────────────────────────────────────────────────── */
+  --reaction-emoji-background-color: rgba(0, 0, 0, 0);
+  --reaction-emoji-border-color: 1px solid transparent;
+  --reaction-emoji-hover-background-color: rgba(220, 38, 38, 0.15);
+  --reaction-emoji-hover-border-color: rgba(220, 38, 38, 0.35);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   STRUCTURAL OVERRIDES (preserved from NAAT)
+   ────────────────────────────────────────────────────────────── */
+
+.footer__214dc {
+  display: none !important;
+}
+
+div .userPopoutOuter_d67f56 .userProfileInnerThemedNonPremium_b64fb4 {
+  background-image: var(--small-user-popout-background-image);
+  background-position: var(--small-user-popout-background-image-position);
+  background-size: cover;
+}
+
+div .userPopoutOuter_d67f56 .userProfileInnerThemedNonPremium_b64fb4 .userPopoutOverlayBackground__3e7e6 {
+  background: var(--small-user-popout-background-transparency);
+}
+
+div .userProfileModalOuter__90b4a .userProfileInnerThemedNonPremium_b64fb4 {
+  background-image: var(--big-user-popout-background-image);
+  background-position: var(--big-user-popout-background-image-position);
+  background-size: cover;
+}
+
+div .userProfileModalOuter__90b4a .userProfileInnerThemedNonPremium_b64fb4 .userProfileModalOverlayBackground_a5b043 {
+  background: var(--big-user-popout-background-transparency);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   SELECTED-SERVER PILL — adjusted dimensions, ShadowRP red
+   ────────────────────────────────────────────────────────────── */
+.pill-1z4sAY .item__58105,
+.pill-3N7f9r .item__58105,
+.pill_e5445c .item__58105,
+.pill__1f388 .item__58105 {
+  border: 0px;
+  border-radius: 0 4px 4px 0;
+  top: 20px;
+  left: -14px;
+  width: 8px;
+  height: 8px !important;
+  background-color: #fff;
+}
+
+.item__58105:not([style*="height: 8px"]):not([style*="height: 20px"]) {
+  top: 4px;
+  height: 40px !important;
+}
+
+.item__58105:not([style*="height: 8px"]):not([style*="height: 40px"]) {
+  top: 14px;
+  height: 20px !important;
+}
+
+/* The legacy NAAT pill rules above use a :not() chain that gives them specificity
+   (0,3,0) — higher than NAAT's own .item__58105 ring rule (0,1,0). Both carry
+   !important, so specificity decides, and the local rule wins. That clobbers the
+   ring overlay variant's height (forces 40px instead of NAAT's intended 100%),
+   producing a stubby half-height ring on the left side of the icon.
+   Restore NAAT's ring geometry with matching specificity, scoped to the overlay. */
+.wrapper__58105.overlay__58105 .item__58105 {
+  top: -2px !important;
+  left: 2px !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* DOT RIGHT */
+.item-2hkk8m {
+  border: none;
+  background: var(--main-color);
+  width: 12px;
+  height: 12px !important;
+  z-index: 10;
+  animation: bounce 2s linear infinite !important;
+}
+
+.wrapper-sa6paO {
+  height: 58px;
+}
+
+.pill-31IEus {
+  top: -6px;
+}
+
+.item-2hkk8m {
+  top: 6px;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   BOUNCE ANIMATION
+   ────────────────────────────────────────────────────────────── */
+@keyframes bounce {
+  from, 20%, 53%, 80%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+  70% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -3px, 0);
+    transform: translate3d(0, -3px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, -1px, 0);
+    transform: translate3d(0, -1px, 0);
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   GRADIENT MOVEMENT — used by mentions, Spotify bar, status bar
+   ────────────────────────────────────────────────────────────── */
+@keyframes gradient-move {
+  to { background-position: 200% center; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   MENTION GRADIENT — ShadowRP red → violet → police blue sweep
+   covers all three brand variants in one animation
+   ────────────────────────────────────────────────────────────── */
+.mentioned_fa6fd2 {
+  animation: gradient-move 10s linear infinite;
+  background: linear-gradient(
+    to right,
+    rgba(220, 38, 38, 0.23) 20%,
+    rgba(15, 15, 18, 0.23) 35%,
+    rgba(15, 15, 18, 0.23) 35%,
+    rgba(147, 51, 234, 0.46) 50%,
+    rgba(147, 51, 234, 0.46) 50%,
+    rgba(37, 99, 235, 0.23) 75%,
+    rgba(220, 38, 38, 0.23) 90%
+  );
+  background-size: 200% auto;
+}
+
+.mentioned_fa6fd2:hover {
+  animation: gradient-move 10s linear infinite;
+  background: linear-gradient(
+    to right,
+    rgba(220, 38, 38, 0.36) 20%,
+    rgba(15, 15, 18, 0.36) 35%,
+    rgba(15, 15, 18, 0.36) 35%,
+    rgba(147, 51, 234, 0.59) 50%,
+    rgba(147, 51, 234, 0.59) 50%,
+    rgba(37, 99, 235, 0.36) 75%,
+    rgba(220, 38, 38, 0.36) 90%
+  );
+  background-size: 200% auto;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   SPOTIFY PLUGIN PROGRESS BAR — red → black → blue → red
+   ────────────────────────────────────────────────────────────── */
+.barFill_Dhkah7 {
+  animation: gradient-move 5s linear infinite;
+  background: linear-gradient(
+    to right,
+    #dc2626 20%,
+    #0a0a0d 35%,
+    #0a0a0d 35%,
+    #2563eb 50%,
+    #2563eb 50%,
+    #9333ea 75%,
+    #dc2626 90%
+  );
+  background-size: 200% auto;
+}
+
+.barFill_Dhkah7:hover {
+  animation: gradient-move 5s linear infinite;
+  background: linear-gradient(
+    to right,
+    #dc2626 20%,
+    #ffffff 35%,
+    #ffffff 35%,
+    #2563eb 50%,
+    #2563eb 50%,
+    #9333ea 75%,
+    #dc2626 90%
+  );
+  background-size: 200% auto;
+}
+
+/* User-status mini bar */
+.barInner__0f713 {
+  animation: gradient-move 5s linear infinite;
+  background: linear-gradient(
+    to right,
+    #ff6b6b 20%,
+    #0a0a0d 35%,
+    #0a0a0d 35%,
+    #c084fc 50%,
+    #c084fc 50%,
+    #60a5fa 75%,
+    #ff6b6b 90%
+  );
+  background-size: 200% auto;
+}
