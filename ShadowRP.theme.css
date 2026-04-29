@@ -273,6 +273,17 @@ div .userProfileModalOuter__90b4a .userProfileInnerThemedNonPremium_b64fb4 .user
   border-radius: 50% !important;
 }
 
+/* Force every server icon to a circle so the RGB ring wraps cleanly.
+   Discord uses an SVG squircle mask on <foreignObject> that morphs to a circle
+   only on hover/select. Clipping a circle on top intersects with that mask —
+   for normal sizes the circle is inscribed within the squircle, so the visible
+   area becomes a true circle in every state.
+   Server-list items only — leaves DM avatars, message avatars, etc. untouched. */
+[class*="listItem"] foreignObject {
+  clip-path: circle(50%) !important;
+  -webkit-clip-path: circle(50%) !important;
+}
+
 /* DOT RIGHT */
 .item-2hkk8m {
   border: none;
