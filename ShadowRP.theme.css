@@ -273,22 +273,21 @@ div .userProfileModalOuter__90b4a .userProfileInnerThemedNonPremium_b64fb4 .user
   border-radius: 50% !important;
 }
 
-/* Multi-column server list — rehash-resilient using [class*=] substring matches.
-   Replaces NAAT v3's hard-coded .itemsContainer_ef3116 / .stack_dbd263 rules,
-   which broke when Discord rotated class hashes. This survives future rehashes
-   too because it matches the semantic prefix (itemsContainer / stack / scroller)
-   rather than a specific hash. */
-[class*="itemsContainer"] > [class*="stack_"] {
-  display: flex !important;
-  flex-direction: row !important;
+/* Multi-column server list — post-2026 Discord update fix.
+   The imported NAAT v3 CSS puts `display: flex` on .tutorialContainer__1f388
+   but no `flex-wrap`, so all servers squeeze into a single flex row. NAAT's
+   other wrap rule targets `.itemsContainer_ef3116 .stack_dbd263`, but the real
+   DOM is `.tree_ef3116 > .stack_dbd263 > .tutorialContainer__1f388 > items`,
+   which the old selector doesn't match. Adding flex-wrap here at the actual
+   parent restores the multi-column stack. Substring `[class*=tutorialContainer]`
+   survives future hash rotations. */
+[class*="tutorialContainer"] {
   flex-wrap: wrap !important;
-  align-items: flex-start !important;
-  justify-content: center !important;
+  align-content: flex-start !important;
 }
-
-[class*="itemsContainer"] > [class*="stack_"] > * {
-  width: fit-content !important;
+[class*="tutorialContainer"] > * {
   flex: 0 0 auto !important;
+  width: fit-content !important;
 }
 
 /* Force every server icon to a circle so the RGB ring wraps cleanly.
