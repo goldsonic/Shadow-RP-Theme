@@ -80,11 +80,8 @@
   /* ────────────────────────────────────────────────────────────
      SERVER LIST WIDTH
      Single: 62px  /  Double: 126px  /  Triple: 184px  /  Quad: 242px
-     TEMP: forced to 62px after a Discord webpack rehash killed NAAT v3's
-     multi-column flex rules. Revert to 242px once we patch the new class
-     hashes into the fork.
      ──────────────────────────────────────────────────────────── */
-  --server-listing-width: 62px;
+  --server-listing-width: 242px;
 
   /* Font Size */
   --font-size: 100%;
@@ -274,6 +271,24 @@ div .userProfileModalOuter__90b4a .userProfileInnerThemedNonPremium_b64fb4 .user
   width: 100% !important;
   height: 100% !important;
   border-radius: 50% !important;
+}
+
+/* Multi-column server list — rehash-resilient using [class*=] substring matches.
+   Replaces NAAT v3's hard-coded .itemsContainer_ef3116 / .stack_dbd263 rules,
+   which broke when Discord rotated class hashes. This survives future rehashes
+   too because it matches the semantic prefix (itemsContainer / stack / scroller)
+   rather than a specific hash. */
+[class*="itemsContainer"] > [class*="stack_"] {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+}
+
+[class*="itemsContainer"] > [class*="stack_"] > * {
+  width: fit-content !important;
+  flex: 0 0 auto !important;
 }
 
 /* Force every server icon to a circle so the RGB ring wraps cleanly.
