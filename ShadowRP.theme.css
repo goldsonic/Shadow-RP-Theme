@@ -273,21 +273,12 @@ div .userProfileModalOuter__90b4a .userProfileInnerThemedNonPremium_b64fb4 .user
   border-radius: 50% !important;
 }
 
-/* Multi-column server list — post-2026 Discord update fix.
-   The imported NAAT v3 CSS puts `display: flex` on .tutorialContainer__1f388
-   but no `flex-wrap`, so all servers squeeze into a single flex row. NAAT's
-   other wrap rule targets `.itemsContainer_ef3116 .stack_dbd263`, but the real
-   DOM is `.tree_ef3116 > .stack_dbd263 > .tutorialContainer__1f388 > items`,
-   which the old selector doesn't match. Adding flex-wrap here at the actual
-   parent restores the multi-column stack. Substring `[class*=tutorialContainer]`
-   survives future hash rotations. */
+/* Multi-column server list — minimal fix. NAAT's imported CSS already sets
+   display: flex on .tutorialContainer__1f388; we just add flex-wrap so items
+   don't squeeze into a single row. NOT touching child widths (the fit-content
+   version distorted icon aspect ratios and turned the rings into ovals). */
 [class*="tutorialContainer"] {
   flex-wrap: wrap !important;
-  align-content: flex-start !important;
-}
-[class*="tutorialContainer"] > * {
-  flex: 0 0 auto !important;
-  width: fit-content !important;
 }
 
 /* Force every server icon to a circle so the RGB ring wraps cleanly.
