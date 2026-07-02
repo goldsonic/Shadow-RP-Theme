@@ -80,8 +80,11 @@
   /* ────────────────────────────────────────────────────────────
      SERVER LIST WIDTH
      Single: 62px  /  Double: 126px  /  Triple: 184px  /  Quad: 242px
+     TEMP: forced to 62px after a Discord webpack rehash killed NAAT v3's
+     multi-column flex rules. Revert to 242px once we patch the new class
+     hashes into the fork.
      ──────────────────────────────────────────────────────────── */
-  --server-listing-width: 242px;
+  --server-listing-width: 62px;
 
   /* Font Size */
   --font-size: 100%;
